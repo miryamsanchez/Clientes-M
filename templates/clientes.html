@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block content %}
+<form class="d-flex justify-content-between" action="/" method="get">
+    <!-- Tu formulario de búsqueda aquí -->
+</form>
+
+{% if vista %}
+    <br>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nombre y Apellidos</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">País</th>
+                <th scope="col">Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in vista %}
+                <tr>
+                    <td>{{ cliente[1] }} {{ cliente[2] }}</td>
+                    <td>{{ cliente[7] }}</td>
+                    <td>{{ cliente[8] }}</td>
+                    <td>
+                        <!-- Botones para acciones -->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation" class="text-center">
+        <!-- Paginación aquí -->
+    </nav>
+
+{% else %}
+    <div class="alert alert-warning" role="alert">
+        No se encontraron clientes.
+    </div>
+{% endif %}
+
+<script>
+// Tu código JavaScript aquí
+</script>
+
+{% endblock %}
